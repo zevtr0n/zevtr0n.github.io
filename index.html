@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Cauan | Python Full Stack Developer</title>
+  <meta name="description" content="Portfólio de Pedro Cauan - Python Full Stack Developer certificado AWS. Especialista em APIs, backend e soluções cloud.">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 (essencial para os ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0c10;
+      color: #eef2ff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .glass-card {
+      background: rgba(18, 22, 30, 0.8);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 2rem;
+      transition: all 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, #0f1119 0%, #0a0c10 100%);
+      border-radius: 2rem;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #94a3f8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      margin-top: 0.75rem;
+    }
+
+    .hero-tag {
+      font-size: 1.2rem;
+      color: #b9c3e6;
+      margin: 0.75rem 0 0.5rem;
+    }
+
+    .cert-badge {
+      background: #1e293b;
+      color: #38bdf8;
+      border-radius: 30px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #11151f;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 4px solid #38bdf8;
+      padding-left: 1rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      color: #cdd9ff;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+    .info-list li {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .info-list i {
+      width: 28px;
+      color: #38bdf8;
+      font-size: 1.2rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .skill-tag {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.6rem 1.3rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-tag i {
+      font-size: 1rem;
+      color: #38bdf8;
+    }
+    .skill-tag:hover {
+      background: #1e2a3e;
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .project-card {
+      background: #11141f;
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      transition: all 0.3s;
+      border: 1px solid #1e293b;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #38bdf8;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
+    }
+    .project-icon {
+      font-size: 2.2rem;
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .tech-badge {
+      background: #1e293b;
+      border-radius: 20px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #a5f3fc;
+    }
+
+    .certs-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .cert-item {
+      background: #0f131e;
+      border-radius: 1.2rem;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-left: 3px solid #38bdf8;
+      flex: 1;
+      min-width: 280px;
+    }
+    .cert-info {
+      flex: 1;
+    }
+    .cert-info strong {
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .cert-date {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .cert-date i {
+      font-size: 0.7rem;
+      color: #38bdf8;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      background: linear-gradient(95deg, #0f131e, #090b10);
+      border-radius: 2rem;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+      border: 1px solid #1f2a3e;
+    }
+    .contact-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .contact-links a {
+      color: #ccd9ff;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .contact-links a:hover {
+      color: #38bdf8;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1e293b;
+      font-size: 0.85rem;
+      color: #7e8bb6;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .certs-wrapper {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Pedro Cauan <br>Ferreira Araújo Dantas</h1>
+      <div class="hero-tag">
+        <i class="fas fa-code"></i> Python Full Stack Developer
+      </div>
+      <div class="badge">
+        <i class="fab fa-aws"></i> AWS Academy Cloud Foundations Certified
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><i class="fas fa-cloud-upload-alt"></i> Cloud Ready</div>
+        <div class="stat"><i class="fas fa-rocket"></i> API Focus</div>
+      </div>
+    </div>
+    <div class="cert-badge">
+      <i class="fas fa-certificate"></i> AWS Certified · Cloud Practitioner
+    </div>
+  </div>
+
+  <!-- About Me -->
+  <div class="about-grid">
+    <div class="about-text glass-card" style="padding: 1.8rem;">
+      <div class="section-title">
+        <i class="fas fa-user-astronaut"></i> About Me
+      </div>
+      <p>I am a <span class="highlight">Python Full Stack Developer</span> with certification in <strong>AWS Cloud Foundations</strong>.<br>
+      I focus on building web applications, <span class="highlight">RESTful APIs</span>, and cloud-based solutions using modern technologies.</p>
+      <p>Committed to writing clean, scalable, and maintainable code. Always exploring serverless architectures and backend optimizations to deliver high-performance digital experiences.</p>
+      <div style="margin-top: 1.2rem;">
+        <i class="fas fa-map-marker-alt"></i> Brazil &nbsp;&nbsp; <i class="fas fa-globe"></i> Remote worldwide
+      </div>
+    </div>
+
+    <div class="glass-card" style="padding: 1.8rem;">
+      <div class="section-title">
+        <i class="fas fa-id-card"></i> Core Info
+      </div>
+      <ul class="info-list">
+        <li><i class="fab fa-python"></i> <strong>Main stack:</strong> Python · Flask · Django</li>
+        <li><i class="fas fa-database"></i> <strong>Databases:</strong> MySQL · PostgreSQL · SQLite</li>
+        <li><i class="fab fa-aws"></i> <strong>AWS:</strong> EC2, S3, RDS, Lambda (foundations)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Technical Skills -->
+  <div>
+    <div class="section-title">
+      <i class="fas fa-cogs"></i> Technical Skills
+    </div>
+    <div class="skills-grid">
+      <div class="skill-tag"><i class="fab fa-python"></i> Python</div>
+      <div class="skill-tag"><i class="fas fa-code-branch"></i> Django / Flask</div>
+      <div class="skill-tag"><i class="fas fa-plug"></i> REST APIs</div>
+      <div class="skill-tag"><i class="fas fa-database"></i> MySQL</div>
+      <div class="skill-tag"><i class="fab fa-aws"></i> AWS (Cloud Foundations)</div>
+      <div class="skill-tag"><i class="fab fa-github"></i> Git & GitHub</div>
+      <div class="skill-tag"><i class="fas fa-box"></i> Docker (basics)</div>
+      <div class="skill-tag"><i class="fas fa-chart-line"></i> API Design</div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div>
+    <div class="section-title">
+      <i class="fas fa-award"></i> Certifications
+    </div>
+    <div class="certs-wrapper">
+      <div class="cert-item">
+        <i class="fab fa-aws" style="font-size: 2rem; color:#38bdf8;"></i>
+        <div class="cert-info">
+          <strong>AWS Academy Cloud Foundations</strong>
+          <div>Cloud concepts, security, and core services</div>
+          <div class="cert-date">
+            <i class="fas fa-calendar-alt"></i> Completed: February 12, 2024
+          </div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <i class="fas fa-laptop-code" style="font-size: 2rem; color:#38bdf8;"></i>
+        <div class="cert-info">
+          <strong>Youth - Full Stack Python Programming</strong>
+          <div>Comprehensive full-stack development with Python</div>
+          <div class="cert-date">
+            <i class="fas fa-calendar-alt"></i> Completed: November 29, 2025
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-bar">
+    <div><i class="fas fa-paper-plane"></i> Let's connect — open to collaborations & opportunities</div>
+    <div class="contact-links">
+      <a href="https://github.com/zevtr0n" target="_blank">
+        <i class="fab fa-github"></i> zevtr0n
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <i class="fas fa-code"></i> Pedro Cauan Ferreira Araújo Dantas
+  </div>
+</div>
+</body>
+</html>
